@@ -17,6 +17,13 @@ const cors = require("cors");
 require("dotenv").config(); // ✅ load .env before using GOOGLE_API_KEY or JWT_SECRET
 
 const agentRoutes = require("./routes/agent");
+const generatorRoutes = require("./routes/generator");
+const groupFlashcardRoutes = require("./routes/groupFlashcards");
+
+const roomsRoutes = require("./routes/rooms");
+
+
+
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -29,8 +36,18 @@ const JWT_EXPIRES_IN = "7d"; // token lifespan
 app.use(cors());
 app.use(express.json({ limit: "1mb" }));
 
+
+
+
+
+
+
+
 // ✅ Mount routes after body parser
 app.use("/api/agent", agentRoutes);
+app.use("/api/generator", generatorRoutes);
+app.use("/api/group-learning", roomsRoutes);
+
 
 // --------------------- Helpers ---------------------
 async function ensureDataDir() {
@@ -112,15 +129,13 @@ app.use(async (req, res, next) => {
 
 // --------------------- Auth middleware ---------------------
 function authMiddleware(req, res, next) {
-  // Allow open routes:
-  // - /api/auth/*
-  // - /api/mock/*
-  // - /api/mock-files
-  // - /api/agent/*   <-- allow public access to agent endpoints (no JWT required)
+
   if (
     req.path.startsWith(API_PREFIX + "/auth/") ||
     req.path.startsWith(API_PREFIX + "/mock") ||
-    req.path.startsWith(API_PREFIX + "/agent")
+    req.path.startsWith(API_PREFIX + "/agent") ||
+    req.path.startsWith(API_PREFIX + "/generator") ||
+    req.path.startsWith(API_PREFIX + "/group-learning")
   ) {
     return next();
   }
