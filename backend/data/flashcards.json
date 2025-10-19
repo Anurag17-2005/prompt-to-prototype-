@@ -161,8 +161,18 @@
       "lastReviewed": null,
       "nextReviewDate": null,
       "createdAt": "2025-10-19T12:42:37.724Z"
+    },
+    {
+      "id": "card_cc2dd1d0",
+      "question": "gravity",
+      "answer": "netween",
+      "tags": [],
+      "difficulty": "easy",
+      "lastReviewed": null,
+      "nextReviewDate": "2025-10-25T00:00:00Z",
+      "createdAt": "2025-10-19T15:17:01.960Z"
     }
   ],
-  "totalCards": 13,
+  "totalCards": 14,
   "dueForReview": 0
 }

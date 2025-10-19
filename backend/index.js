@@ -18,7 +18,7 @@ require("dotenv").config(); // ✅ load .env before using GOOGLE_API_KEY or JWT_
 
 const agentRoutes = require("./routes/agent");
 const generatorRoutes = require("./routes/generator");
-const groupFlashcardRoutes = require("./routes/groupFlashcards");
+
 
 const roomsRoutes = require("./routes/rooms");
 
@@ -34,7 +34,14 @@ const JWT_EXPIRES_IN = "7d"; // token lifespan
 
 // ✅ Enable CORS and JSON parsing BEFORE any routes
 app.use(cors());
-app.use(express.json({ limit: "1mb" }));
+app.use(express.json({ limit: "10mb" }));
+
+
+// near other requires
+const knowledgeTestsRoutes = require("./routes/knowledgeTests");
+// after body parser / before auth middleware or after existing mounts — any order similar to other routes:
+app.use("/api/knowledge-tests", knowledgeTestsRoutes);
+
 
 
 
@@ -47,6 +54,11 @@ app.use(express.json({ limit: "1mb" }));
 app.use("/api/agent", agentRoutes);
 app.use("/api/generator", generatorRoutes);
 app.use("/api/group-learning", roomsRoutes);
+
+const ocrRoutes = require("./routes/ocr");
+// ...
+app.use("/api/ocr", ocrRoutes);
+
 
 
 // --------------------- Helpers ---------------------

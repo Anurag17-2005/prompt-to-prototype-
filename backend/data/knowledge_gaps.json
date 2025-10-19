@@ -1,24 +1,4 @@
 {
-  "gaps": [
-    {
-      "id": "gap_001",
-      "topic": "Recursion",
-      "subject": "Algorithms",
-      "confidenceScore": 45,
-      "lastPracticed": "2023-06-10T14:30:00Z",
-      "resources": [
-        {
-          "title": "Recursion for Beginners",
-          "type": "video",
-          "url": "https://example.com/recursion-tutorial"
-        },
-        {
-          "title": "Understanding Base Cases",
-          "type": "article",
-          "url": "https://example.com/base-cases"
-        }
-      ]
-    }
-  ],
-  "suggestedTopics": ["Dynamic Programming", "Graph Theory"]
+  "gaps": [],
+  "suggestedTopics": []
 }

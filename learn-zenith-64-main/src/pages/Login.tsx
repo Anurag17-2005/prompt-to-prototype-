@@ -44,6 +44,18 @@ export default function Login() {
           </CardDescription>
         </CardHeader>
         <CardContent>
+          {/* 🔹 Guidance Section */}
+          <div className="mb-6 p-3 border border-muted rounded-md bg-muted/20 text-sm text-muted-foreground">
+            <p className="font-medium text-foreground mb-1">
+              Please use the following credentials to access the system, or feel free to REGISTER with your own login details:
+            </p>
+            <ul className="list-disc list-inside space-y-1 mt-2">
+              <li><strong>Email:</strong> anuragpanigrahi17@gmail.com</li>
+              <li><strong>Password:</strong> rootroot <span className="text-xs text-muted-foreground"></span></li>
+            </ul>
+          </div>
+
+          {/* 🔹 Login Form */}
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="space-y-2">
               <Label htmlFor="email">Email</Label>
@@ -71,6 +83,8 @@ export default function Login() {
               {loading ? "Signing in..." : "Sign In"}
             </Button>
           </form>
+
+          {/* 🔹 Footer */}
           <div className="mt-4 text-center text-sm">
             Don't have an account?{" "}
             <Link to="/register" className="text-primary hover:underline">
