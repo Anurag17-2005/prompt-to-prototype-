@@ -1,0 +1,52 @@
+{
+  "cards": [
+    {
+      "id": "card_001",
+      "question": "What is the time complexity of binary search?",
+      "answer": "O(log n)",
+      "tags": [
+        "algorithms",
+        "time-complexity"
+      ],
+      "difficulty": "medium",
+      "lastReviewed": "2025-10-19T05:10:55.413Z",
+      "nextReviewDate": "2025-10-29T05:10:55.413Z",
+      "createdAt": "2023-05-20T10:15:00Z"
+    },
+    {
+      "id": "card_002",
+      "question": "What is React?",
+      "answer": "A JavaScript library for building user interfaces",
+      "tags": [
+        "react",
+        "frontend"
+      ],
+      "difficulty": "easy",
+      "lastReviewed": "2025-10-19T05:10:56.596Z",
+      "nextReviewDate": "2025-10-29T05:10:56.596Z",
+      "createdAt": "2023-06-15T10:00:00Z"
+    },
+    {
+      "id": "card_fe91339d",
+      "question": "what is usa ",
+      "answer": "a country",
+      "tags": [],
+      "difficulty": "easy",
+      "lastReviewed": "2025-10-19T05:10:57.778Z",
+      "nextReviewDate": "2025-10-29T05:10:57.778Z",
+      "createdAt": "2025-10-18T12:37:08.261Z"
+    },
+    {
+      "id": "card_6f3bc704",
+      "question": "messi",
+      "answer": "GOAT",
+      "tags": [],
+      "difficulty": "easy",
+      "lastReviewed": "2025-10-19T05:10:59.179Z",
+      "nextReviewDate": "2025-10-29T05:10:59.179Z",
+      "createdAt": "2025-10-19T05:10:50.915Z"
+    }
+  ],
+  "totalCards": 4,
+  "dueForReview": 0
+}
