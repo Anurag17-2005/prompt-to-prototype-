@@ -51,9 +51,9 @@ app.use("/api/knowledge-tests", knowledgeTestsRoutes);
 
 
 // ✅ Mount routes after body parser
-app.use("/api/agent", agentRoutes);
-app.use("/api/generator", generatorRoutes);
-app.use("/api/group-learning", roomsRoutes);
+app.use("/agent", agentRoutes);
+app.use("/generator", generatorRoutes);
+app.use("/group-learning", roomsRoutes);
 
 const ocrRoutes = require("./routes/ocr");
 // ...
