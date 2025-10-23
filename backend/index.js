@@ -32,30 +32,7 @@ const DATA_DIR = path.join(__dirname, "data");
 const JWT_SECRET = process.env.LEARNBOOST_JWT_SECRET || "learnboost_dev_secret";
 const JWT_EXPIRES_IN = "7d"; // token lifespan
 
-// ✅ Enable CORS and JSON parsing BEFORE any routes
-const allowedOrigins = [
-  'https://learn-boost.vercel.app',
-  'http://localhost:3000',  // Keep local development support
-  'http://localhost:3001'   // Common alternative port
-];
-
-// CORS middleware
-app.use((req, res, next) => {
-  const origin = req.headers.origin;
-  if (allowedOrigins.includes(origin)) {
-    res.header('Access-Control-Allow-Origin', origin);
-    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-    res.header('Access-Control-Allow-Credentials', 'true');
-    
-    // Handle preflight
-    if (req.method === 'OPTIONS') {
-      return res.status(200).end();
-    }
-  }
-  next();
-});
-
+app.use(cors());
 // Parse JSON bodies
 app.use(express.json({ limit: "10mb" }));
 
