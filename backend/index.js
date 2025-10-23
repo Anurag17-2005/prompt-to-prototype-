@@ -33,32 +33,27 @@ const JWT_SECRET = process.env.LEARNBOOST_JWT_SECRET || "learnboost_dev_secret";
 const JWT_EXPIRES_IN = "7d"; // token lifespan
 
 // ✅ Enable CORS and JSON parsing BEFORE any routes
+const allowedOrigins = [
+  'https://learn-boost.vercel.app',
+  'http://localhost:3000',  // Keep local development support
+  'http://localhost:3001'   // Common alternative port
+];
 
-const corsOptions = {
-  origin: [
-    'https://learn-boost.vercel.app',
-    'http://localhost:3000',  // Keep local development support
-    'http://localhost:3001'   // Common alternative port
-  ],
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true,
-  optionsSuccessStatus: 200 // Some legacy browsers choke on 204
-};
-
-// Apply CORS with options
-app.use(cors(corsOptions));
-
-// Handle preflight requests
-
-
-// Explicitly handle preflight requests for all routes
-app.options('*', (req, res) => {
-  res.setHeader('Access-Control-Allow-Origin', req.headers.origin || '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-  res.setHeader('Access-Control-Allow-Credentials', 'true');
-  res.status(200).end();
+// CORS middleware
+app.use((req, res, next) => {
+  const origin = req.headers.origin;
+  if (allowedOrigins.includes(origin)) {
+    res.header('Access-Control-Allow-Origin', origin);
+    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    res.header('Access-Control-Allow-Credentials', 'true');
+    
+    // Handle preflight
+    if (req.method === 'OPTIONS') {
+      return res.status(200).end();
+    }
+  }
+  next();
 });
 
 // Parse JSON bodies
