@@ -12,7 +12,7 @@ if (!GOOGLE_API_KEY) {
 
 // Preferred model ordering
 const PREFERRED_MODEL_PREFIXES = [
-  "gemini-2.0-flash"
+  "gemini-2.5-flash"
 ];
 
 // Local fallback answers
@@ -23,7 +23,7 @@ const FALLBACK_ANSWERS = {
     "Sorry — the study agent can't reach the AI service right now. Try again later or ask a different question."
 };
 
-// Cache selected model so listing isn't done every request
+// Cache selected  so listing isn't done every request
 let cachedModel = null;
 let cachedSupportsGenerateContent = false;
 let modelListAttempted = false;
