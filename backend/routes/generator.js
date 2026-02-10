@@ -47,7 +47,7 @@ router.post("/generate", async (req, res) => {
     }
 
     // Gemini 2.0 Flash model
-    const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GOOGLE_API_KEY}`;
+    const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GOOGLE_API_KEY}`;
 
     const prompt = `
 
