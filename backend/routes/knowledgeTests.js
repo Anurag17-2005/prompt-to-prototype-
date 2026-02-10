@@ -9,7 +9,7 @@ const FILE = path.join(DATA_DIR, "knowledge_tests.json");
 
 // ENV keys
 const GOOGLE_API_KEY = process.env.GOOGLE_API_KEY || process.env.GEMINI_API_KEY;
-const MODEL = process.env.GEMINI_TEXT_MODEL || "gemini-2.0-flash";
+const MODEL = process.env.GEMINI_TEXT_MODEL || "gemini-2.5-flash";
 
 // helpers
 async function ensureFile() {
